@@ -1,0 +1,10 @@
+h1 {
+    font-family: Epilogue;
+    font-weight: 800;
+    text-align: center;
+}
+h2, h3, h4, h5, h6, p {
+    text-align: center;
+    font-family: Epilogue;
+    font-weight: 300;
+}
