@@ -22,8 +22,11 @@
 	<link rel="icon" href={favicon} />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Gamja+Flower&family=Indie+Flower&family=Meow+Script&family=Nanum+Brush+Script&family=Oleo+Script:wght@400;700&family=Pacifico&family=Playwrite+CA:wght@100..400&display=swap" rel="preload" as="style">
 	<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Gamja+Flower&family=Indie+Flower&family=Meow+Script&family=Nanum+Brush+Script&family=Oleo+Script:wght@400;700&family=Pacifico&family=Playwrite+CA:wght@100..400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=refresh" />
 </svelte:head>
 
 <div id="background"></div>
 {@render children()}
+

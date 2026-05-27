@@ -46,10 +46,9 @@
         top: 150px;
         background-color: rgb(171, 80, 111);
         padding: 20px;
+        margin-left: 15vh;
+        margin-right: 15vh;
         border-radius: 20px;
-        left: 15%;
-        right: 15%;
-        width: 70%;
         box-shadow: 0px 0px 20px 15px rgba(119, 119, 119, 0.498);
     }
     #confettiRight {
@@ -73,8 +72,10 @@
     }
     #penguin {
         position: fixed;
+        transform: translate(-50%, 0%);
         bottom: -100vh;
-        width: 100%;
+        left: 50%;
+        max-width: 75vh;
         z-index: 998;
         transition: all 1.5s ease-in-out;
         transition-delay: 1500;
@@ -86,6 +87,37 @@
     .up {
         bottom: -100px !important;
     }
+    #font-load {
+        visibility: hidden;
+        user-select: none;
+        position: absolute;
+    }
+
+    #reload {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+    }
+    #reload:hover {
+        cursor: pointer;
+    }
+     button {
+        background-color: rgb(175, 49, 154);
+        border-radius: 30px;
+        padding: 8px;
+        color: white;
+        border: none;
+        transition: all 0.3s ease-in-out;
+
+        span {
+            transform: translateY(2px);
+        }
+     }
+     button:hover {
+        transform: scale(1.1);
+        cursor: pointer !important;
+     }
 </style>
 <svelte:window bind:innerWidth={screenX} bind:innerHeight={screenY}></svelte:window>
 <div use:confetti={{stageWidth: screenX*0.88, stageHeight: screenY*0.95}} id="confettiRight"></div>
@@ -97,5 +129,14 @@
     <h3>When you first sponsored The Zoo, the sites I had made for that were the first SvelteKit projects I had ever worked on; hopefully, this is better than those sites {">w<"}. Thanks for somehow trusting me enough to handle two YSWSs.</h3>
     <h4 style:font-family="Playwrite CA">Lynn</h4>
 </div> 
-<img src="{base}/images/olive.png" class:up={showImages} id="penguin" alt="Olive as a penguin"/>
+<img src="{base}/images/olib poob.png" class:up={showImages} id="penguin" alt="Olive as a penguin"/>
 <img src="{base}/images/wave.png" class:up={showImages} id="wave" alt="Wave graphic"/>
+<div id="font-load">
+    {#each fontCycle as x}
+    <p style:font-family={x}>Load font</p>
+    {/each}
+</div>
+
+<div id="reload">
+<button onclick={() =>{window.location.href = base}}><span class="material-symbols-outlined">refresh</span></button>
+</div>
