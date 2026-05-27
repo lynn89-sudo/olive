@@ -8,7 +8,7 @@
     let screenY = $state(0);
 
     let fontCycle = ["Gamja Flower", "Indie Flower", "Oleo Script", "Nanum Brush Script", "Pacifico"];
-    let fontScale = [1, 1, 0.8, 1.3, 0.7]
+    let fontScale = [1, 1, 0.8, 1.3, 0.7];
     let currFont = $state(fontCycle[2]);
     let fontIndex = $state(2);
     onMount(() => {
@@ -98,6 +98,10 @@
         top: 10px;
         right: 10px;
         z-index: 1000;
+
+        button {
+            box-shadow: 0px 0px 20px 10px rgba(182, 178, 178, 0.545);
+        }
     }
     #reload:hover {
         cursor: pointer;
@@ -118,6 +122,15 @@
         transform: scale(1.1);
         cursor: pointer !important;
      }
+
+     #labelReload {
+        position: fixed;
+        z-index: 999;
+        bottom: 10px;
+        transform: translate(-50%, 0%);
+        left: 50%;
+        font-size: 15px;
+     }
 </style>
 <svelte:window bind:innerWidth={screenX} bind:innerHeight={screenY}></svelte:window>
 <div use:confetti={{stageWidth: screenX*0.88, stageHeight: screenY*0.95}} id="confettiRight"></div>
@@ -136,6 +149,7 @@
     <p style:font-family={x}>Load font</p>
     {/each}
 </div>
+<p id="labelReload"><i>(Reload the page for different animations!)</i></p>
 
 <div id="reload">
 <button onclick={() =>{window.location.href = base}}><span class="material-symbols-outlined">refresh</span></button>
