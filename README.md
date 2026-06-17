@@ -1,42 +1,12 @@
-# sv
+# Card for Olive!
+It's a birthday card for Olive (@EnterpriseGoose https://github.com/EnterpriseGoose)!
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## How this was made
+This is a static site made with SvelteKit
 
-## Creating a project
+## How can I use it?
+Just go to https://lynn89-sudo.github.io/olive
+You should use a computer
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv@0.15.3 create --template minimal --no-types --add sveltekit-adapter="adapter:auto" --install npm ./
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## How would I setup the development environment?
+This is a card... but if you want to use this as a template all you need to do is install npm and then run "npm run dev" to see the site itself!
