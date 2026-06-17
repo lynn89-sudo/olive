@@ -1,5 +1,5 @@
 <script>
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/icons8-cupcake-32.png';
 
 	import "$lib/styles.css";
 

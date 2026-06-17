@@ -11,6 +11,14 @@
     let fontScale = [1, 1, 0.8, 1.3, 0.7];
     let currFont = $state(fontCycle[2]);
     let fontIndex = $state(2);
+
+    let animations = ["meeple"];
+    let animation = $state("");
+    if (true) {
+        let rand = Math.floor((Math.random() * animations.length));
+        animation = animations[rand];
+    }
+
     onMount(() => {
         setInterval(() => {
             fontIndex++; 
@@ -62,14 +70,26 @@
     #wave {
         position: fixed;
         bottom: -100vh;
-        left: 0;
-        right: 0;
+        width: 100%;
+        transform: translateX(-10px);
         z-index: 999;
         transition: all 1s ease-in-out;
         user-select: none;
         -webkit-user-drag: none;
         -moz-user-select: none;
     }
+
+    #animationSpecial {
+        position: fixed;
+        bottom: -100vh;
+        width: 100%;
+        z-index: 997;
+        transition: all 1s ease-in-out;
+        user-select: none;
+        -webkit-user-drag: none;
+        -moz-user-select: none;
+        transition-delay: 1.5s;
+     }
     #penguin {
         position: fixed;
         transform: translate(-50%, 0%);
@@ -92,45 +112,6 @@
         user-select: none;
         position: absolute;
     }
-
-    #reload {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        z-index: 1000;
-
-        button {
-            box-shadow: 0px 0px 20px 10px rgba(182, 178, 178, 0.545);
-        }
-    }
-    #reload:hover {
-        cursor: pointer;
-    }
-     button {
-        background-color: rgb(175, 49, 154);
-        border-radius: 30px;
-        padding: 8px;
-        color: white;
-        border: none;
-        transition: all 0.3s ease-in-out;
-
-        span {
-            transform: translateY(2px);
-        }
-     }
-     button:hover {
-        transform: scale(1.1);
-        cursor: pointer !important;
-     }
-
-     #labelReload {
-        position: fixed;
-        z-index: 999;
-        bottom: 10px;
-        transform: translate(-50%, 0%);
-        left: 50%;
-        font-size: 15px;
-     }
 </style>
 <svelte:window bind:innerWidth={screenX} bind:innerHeight={screenY}></svelte:window>
 <div use:confetti={{stageWidth: screenX*0.88, stageHeight: screenY*0.95}} id="confettiRight"></div>
@@ -139,18 +120,15 @@
 </div>
 <div id="body">
     <h3>While I hate most things from New Jersey, you're actually pretty cool :P</h3>
-    <h3>When you first sponsored The Zoo, the sites I had made for that were the first SvelteKit projects I had ever worked on; hopefully, this is better than those sites {">w<"}. Thanks for somehow trusting me enough to handle two YSWSs.</h3>
+    <h3>When you first sponsored The Zoo, the sites I made for that were the first SvelteKit projects I had ever worked on; hopefully, this is better than those sites {">w<"}. Thanks for somehow trusting me enough to handle two YSWSs.</h3>
     <h4 style:font-family="Playwrite CA">Lynn</h4>
 </div> 
 <img src="{base}/images/olib poob.png" class:up={showImages} id="penguin" alt="Olive as a penguin"/>
 <img src="{base}/images/wave.png" class:up={showImages} id="wave" alt="Wave graphic"/>
+<img src="{base}/images/animations/{animation}.png" class:up={showImages} id="animationSpecial" alt="Specialized animation" />
+
 <div id="font-load">
     {#each fontCycle as x}
     <p style:font-family={x}>Load font</p>
     {/each}
-</div>
-<p id="labelReload"><i>(Reload the page for different animations!)</i></p>
-
-<div id="reload">
-<button onclick={() =>{window.location.href = base}}><span class="material-symbols-outlined">refresh</span></button>
 </div>
